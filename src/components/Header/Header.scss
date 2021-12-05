@@ -1,0 +1,25 @@
+.layout__header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #393535;
+  border:1px solid black;
+  .buttons_block{
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 600px){
+  .layout__header{
+    .buttons_block{
+      max-width: 320px;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}
