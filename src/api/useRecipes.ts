@@ -3,11 +3,10 @@ import axios from "axios";
 
 export const getRandomReceipt = async () => {
   try {
-    const res = await axios.get(url).then((res) => res.data.meals[0]);
-    if (res) {
-      return res;
-    }
+    const res = await axios.get(url);
+
+    return res;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };

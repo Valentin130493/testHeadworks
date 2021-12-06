@@ -1,5 +1,6 @@
 import React from "react";
 import placeholder from "../../../assets/svg/Placeholder.svg";
+import "./OneReceipt.scss";
 
 interface Props {
   imgSrc?: string;
@@ -9,13 +10,15 @@ interface Props {
 
 const OneReceipt: React.FC<Props> = ({ imgSrc, title, description }) => {
   return (
-    <>
-      <section className={"receipt"}>
-        <img src={imgSrc === "" ? imgSrc : placeholder} alt={"Dish"} />
-        <h3 className={"title"}> {title}</h3>
-        <p className={"description"}>{description}</p>
-      </section>
-    </>
+    <section className={"receipt"}>
+      <img
+        className={"receipts_img"}
+        src={imgSrc === "" ? placeholder : imgSrc}
+        alt={"Dish"}
+      />
+      <h3 className={"title"}> {title}</h3>
+      <p className={"description"}>{description?.substr(0, 1500)}</p>
+    </section>
   );
 };
 

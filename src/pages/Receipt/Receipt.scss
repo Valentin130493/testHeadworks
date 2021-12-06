@@ -1,0 +1,26 @@
+.main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  .btn_block{
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .main{
+    padding: 10px 0;
+    .btn_block{
+      max-width: 320px;
+      width: 100%;
+    }
+  }
+
+}

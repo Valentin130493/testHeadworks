@@ -1,48 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getRandomReceipt } from "../../api/useRecipes";
 import { Button } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { actionGetRandomReceipt } from "../../store/actions/actionGetRandomReceipt";
-import { ApplicationState } from "../../store";
 import OneReceipt from "../../components/_common/Receipt/OneReceipt";
 import "./Receipt.scss";
-import { RECEIPT } from "../../store/reducers/randomReceiptReducer";
+import { useDispatch } from "react-redux";
+import { actionToFavReceipts } from "../../store/actions/actionToFavReceipts";
+
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strInstructions: string;
+  strMealThumb: string;
+}
 
 const Receipt = () => {
   const dispatch = useDispatch();
+  const [state, setState] = useState<Meal | null>(null);
   useEffect(() => {
     getReceipt();
   }, []);
 
   const getReceipt = async () => {
-    let data = await getRandomReceipt();
+    let { data } = await getRandomReceipt();
+    setState(data?.meals[0] || null);
+  };
+  console.log(state);
+
+  const addToFav = () => {
     dispatch(
-      actionGetRandomReceipt({
-        id: data.idMeal,
-        title: data.strMeal,
-        imgSRC: data.strImageSource,
-        description: data.strInstructions,
+      actionToFavReceipts({
+        id: state?.idMeal,
+        title: state?.strMeal,
+        imgSrc: state?.strMealThumb,
+        description: state?.strInstructions,
       })
     );
   };
 
-  const receiptData = useSelector<ApplicationState>((state) => state.random);
-
-  const addToFav = () => {};
-
-  return (
+  return state ? (
     <div className={"main"}>
-      <OneReceipt
-        title={receiptData?.title}
-        description={receiptData?.description}
-        imgSrc={receiptData?.imgSrc}
-      />
-      <div className={"buttons_block"}>
-        <Button onClick={getRandomReceipt}> Skip</Button>
-        <Button onClick={addToFav}> like</Button>
+      <div>
+        <OneReceipt
+          title={state.strMeal}
+          description={state.strInstructions}
+          imgSrc={state.strMealThumb}
+        />
+      </div>
+
+      <div className={"btn_block"}>
+        <Button color={"error"} onClick={getReceipt}>
+          Skip
+        </Button>
+        <Button color={"success"} onClick={addToFav}>
+          like
+        </Button>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Receipt;

@@ -1,18 +1,13 @@
 import { createStore, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import randomReceiptReducer, { RECEIPT } from "./reducers/randomReceiptReducer";
+import favReceiptReducer from "./reducers/favReceiptReducer";
 
 export interface CustomAction {
   type: string;
   data?: any;
 }
-
-export interface ApplicationState {
-  random: RECEIPT;
-}
-
 const reducer = combineReducers({
-  random: randomReceiptReducer,
+  fav: favReceiptReducer,
 });
 
 export const store = createStore(reducer, composeWithDevTools());
