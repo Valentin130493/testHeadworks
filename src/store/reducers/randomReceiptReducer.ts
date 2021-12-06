@@ -1,13 +1,5 @@
 import { RANDOM_RECEIPT_TYPES } from "../actionTypes";
-
-export interface CustomAction {
-  type: string;
-  data?: any;
-}
-
-export interface defaultState {
-  receipt: RECEIPT;
-}
+import { CustomAction } from "../index";
 
 export interface RECEIPT {
   id: string;

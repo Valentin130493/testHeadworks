@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getRandomReceipt } from "../../api/useRecipes";
-import placeholder from "../../assets/svg/Placeholder.svg";
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { actionGetRandomReceipt } from "../../store/actions/actionGetRandomReceipt";
+import { ApplicationState } from "../../store";
+import OneReceipt from "../../components/_common/Receipt/OneReceipt";
+import "./Receipt.scss";
+import { RECEIPT } from "../../store/reducers/randomReceiptReducer";
 
 const Receipt = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     getReceipt();
   }, []);
-
-  const receiptData: any = useSelector<any>((state) => state.random);
 
   const getReceipt = async () => {
     let data = await getRandomReceipt();
@@ -25,16 +26,21 @@ const Receipt = () => {
     );
   };
 
+  const receiptData = useSelector<ApplicationState>((state) => state.random);
+
+  const addToFav = () => {};
+
   return (
     <div className={"main"}>
-      <section className={"receipt"}>
-        <img src={placeholder} alt={"Dish"} />
-        {receiptData && <h3 className={"title"}>{receiptData.title}</h3>}
-        <p className={"description"}>{}</p>
-        <div className={"buttons_block"}>
-          <Button onClick={getReceipt}> Skip</Button>
-        </div>
-      </section>
+      <OneReceipt
+        title={receiptData?.title}
+        description={receiptData?.description}
+        imgSrc={receiptData?.imgSrc}
+      />
+      <div className={"buttons_block"}>
+        <Button onClick={getRandomReceipt}> Skip</Button>
+        <Button onClick={addToFav}> like</Button>
+      </div>
     </div>
   );
 };
