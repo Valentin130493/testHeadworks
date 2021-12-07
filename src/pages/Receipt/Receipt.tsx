@@ -24,7 +24,6 @@ const Receipt = () => {
     let { data } = await getRandomReceipt();
     setState(data?.meals[0] || null);
   };
-  console.log(state);
 
   const addToFav = () => {
     dispatch(
@@ -35,6 +34,7 @@ const Receipt = () => {
         description: state?.strInstructions,
       })
     );
+    getReceipt();
   };
 
   return state ? (

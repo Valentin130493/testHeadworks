@@ -1,0 +1,57 @@
+.modal-back {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0,0,0,.3);
+  overflow-y: auto;
+  z-index: 600;
+}
+
+.base-modal {
+  max-width: 350px;
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 3px 15px rgb(0, 0, 0.2);
+  border-radius: 5px;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+    padding: 10px;
+    .first{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      img{
+        width: 25px;
+        height: 25px;
+      }
+
+    }
+    .second{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .input{
+      padding: 5px;
+      outline: none;
+      border-radius: 10px;
+
+    }
+
+  }
+
+
+}

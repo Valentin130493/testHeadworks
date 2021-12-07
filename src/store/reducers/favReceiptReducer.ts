@@ -1,21 +1,14 @@
 import { FAVOURITES_RECEIPT_TYPES } from "../actionTypes";
 import { CustomAction } from "../index";
 
-export interface RECEIPT {
-  id: string;
-  title: string;
-  imgSrc: string;
-  description: string;
+export interface Receipt {
+  id?: string;
+  title?: string;
+  imgSrc?: string;
+  description?: string;
 }
-const defaultState = {
-  receipts: [
-    {
-      id: "",
-      title: "",
-      imgSrc: "",
-      description: "",
-    },
-  ],
+const defaultState: { receipts: Receipt[] } = {
+  receipts: [],
 };
 
 const favReceiptReducer = (state = defaultState, action: CustomAction) => {
@@ -23,10 +16,13 @@ const favReceiptReducer = (state = defaultState, action: CustomAction) => {
     case FAVOURITES_RECEIPT_TYPES.ADD_TO_FAV: {
       return {
         ...state,
-        receipts:
-          state.receipts[0].id === ""
-            ? state.receipts.splice(0, 1, action.data)
-            : state.receipts.concat(action.data),
+        receipts: state.receipts.concat(action.data),
+      };
+    }
+    case FAVOURITES_RECEIPT_TYPES.ADD_CUSTOM: {
+      return {
+        ...state,
+        receipts: state.receipts.concat(action.data),
       };
     }
 

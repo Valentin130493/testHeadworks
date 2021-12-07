@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./Header.scss";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../router/routes";
+import Modal from "../Modal/Modal";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [active, setActive] = useState("");
+  const [close, setClose] = useState(false);
 
   const chooseReceipt = () => {
     setActive("receipt");
@@ -15,6 +18,9 @@ const Header = () => {
   const chooseFavourites = () => {
     setActive("fav");
     navigate(ROUTES.FAVOURITE);
+  };
+  const handleClose = () => {
+    setClose(!close);
   };
 
   return (
@@ -40,6 +46,12 @@ const Header = () => {
             Favourites
           </Button>
         </div>
+        {location.pathname === "/fav" && (
+          <Button variant={"text"} color={"secondary"} onClick={handleClose}>
+            Add custom dish
+          </Button>
+        )}
+        {close && <Modal close={handleClose} />}
       </header>
     </>
   );

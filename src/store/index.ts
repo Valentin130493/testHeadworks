@@ -4,8 +4,9 @@ import favReceiptReducer from "./reducers/favReceiptReducer";
 
 export interface CustomAction {
   type: string;
-  data?: any;
+  data: any;
 }
+
 const reducer = combineReducers({
   fav: favReceiptReducer,
 });
