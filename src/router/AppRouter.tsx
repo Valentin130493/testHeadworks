@@ -7,7 +7,7 @@ import Receipt from "../pages/Receipt/Receipt";
 
 const AppRouter = () => {
   return (
-    <Router basename={"/testHeadworks"}>
+    <Router>
       <Routes>
         <Route path={"/testHeadworks"} element={<Layout />}>
           <Route path={ROUTES.RECEIPT} element={<Receipt />} />
