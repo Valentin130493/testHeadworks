@@ -1,4 +1,4 @@
 export const ROUTES = {
   RECEIPT: "/receipt",
-  FAVOURITE: "fav",
+  FAVOURITE: "/fav",
 };
