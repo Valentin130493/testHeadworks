@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/testHeadworks/static/css/main.3a63aca3.chunk.css",
+    "main.js": "/testHeadworks/static/js/main.31fffdb1.chunk.js",
+    "main.js.map": "/testHeadworks/static/js/main.31fffdb1.chunk.js.map",
+    "runtime-main.js": "/testHeadworks/static/js/runtime-main.b92ff3c2.js",
+    "runtime-main.js.map": "/testHeadworks/static/js/runtime-main.b92ff3c2.js.map",
+    "static/js/2.4cdbc53c.chunk.js": "/testHeadworks/static/js/2.4cdbc53c.chunk.js",
+    "static/js/2.4cdbc53c.chunk.js.map": "/testHeadworks/static/js/2.4cdbc53c.chunk.js.map",
+    "static/js/3.4cf9ecfa.chunk.js": "/testHeadworks/static/js/3.4cf9ecfa.chunk.js",
+    "static/js/3.4cf9ecfa.chunk.js.map": "/testHeadworks/static/js/3.4cf9ecfa.chunk.js.map",
+    "index.html": "/testHeadworks/index.html",
+    "static/css/main.3a63aca3.chunk.css.map": "/testHeadworks/static/css/main.3a63aca3.chunk.css.map",
+    "static/js/2.4cdbc53c.chunk.js.LICENSE.txt": "/testHeadworks/static/js/2.4cdbc53c.chunk.js.LICENSE.txt",
+    "static/media/Placeholder.1dc604e1.svg": "/testHeadworks/static/media/Placeholder.1dc604e1.svg",
+    "static/media/circle.c0675367.svg": "/testHeadworks/static/media/circle.c0675367.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b92ff3c2.js",
+    "static/js/2.4cdbc53c.chunk.js",
+    "static/css/main.3a63aca3.chunk.css",
+    "static/js/main.31fffdb1.chunk.js"
+  ]
+}
