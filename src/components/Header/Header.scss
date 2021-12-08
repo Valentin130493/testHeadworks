@@ -17,6 +17,7 @@
 @media (max-width: 600px){
   .layout__header{
       max-width: 350px;
+    flex-direction: column;
     width: 100%;
     .buttons_block{
       max-width: 320px;
